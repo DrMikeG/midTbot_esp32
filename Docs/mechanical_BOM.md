@@ -16,11 +16,11 @@
 | Stepper Motor NEMA14 x 20mm Tall 5mm Shaft               | 2    | [StepperOnLine](<https://www.omc-stepperonline.com/nema-14-stepper-motor/nema-14-bipolare-1-8deg-5ncm-7-08oz-in-0-4a-10v-35x35x20mm-4-fili.html>) | [Issue](<https://github.com/bdring/midTbot_esp32/issues/10>) |
 | GT2 6mm Wide Belt                                        | 1m   | [Amazon](<https://www.amazon.com/Mercurry-Meters-timing-Rostock-GT2-6mm/dp/B071K8HYB4>) |                                                              |
 | Controller PCB                                           | 1    |                                                              |                                                              |
-| Button Screw M3 x 50mm                                   | 1    |                                                              |                                                              |
-| Hex Nut M3 Locking                                       | 1    |                                                              |                                                              |
-| Socket Head Screw M5 x 14                                | 1    |                                                              |                                                              |
-| Socket Head Screw M3 x 16                                | 6    |                                                              |                                                              |
-| Button Head Screw M3 x 8mm                               | 6    |                                                              |                                                              |
+| Button Screw M3 x 50mm                                   | 1    | Ordered 2 Ebay                                                             |                                                              |
+| Hex Nut M3 Locking                                       | 1    |  ordered 5 ebay                                                            |                                                              |
+| Socket Head Screw M5 x 14                                | 1    |   ordered 5 ebay                                                           |                                                              |
+| Socket Head Screw M3 x 16                                | 6    | ordered 10 ebay                                                             |                                                              |
+| Button Head Screw M3 x 8mm                               | 6    |  ordered 10 ebay                                                            |                                                              |
 | Rubber Foot 1/2" dia x 1/8" Thk                          | 4    | [Amazon](<https://www.amazon.com/Self-Stick-Noise-Dampening-Bumpers-12-pieces/dp/B001WAK6DS>) |                                                              |
 | Bearing 3mm x 7mm x 3mm (683ZZ)                          | 2    | [Amazon](<https://www.amazon.com/gp/product/B00ZHSR2QU>)     |                                                              |
 | Hobby Servo MG90S                                        | 1    | [Amazon](https://www.amazon.com/s?k=mg90)                    |                                                              |
