@@ -9,7 +9,7 @@
 | Head Block                                               | 1    | 3D Printed                                                   |  Printed                                                            |
 | Tail Block                                               | 1    | 3D Printed                                                   |  Printed                                                            |
 | Pen Mounting Block                                       | 1    | 3D Printed                                                   |  Printed                                                            |
-| Linear Bearing Shaft 6mm Dia. x 200 lg.                  | 4    | [Amazon](<https://www.amazon.com/ReliaBot-inches-Hardened-Chrome-Plated/dp/B07R16DRVY>) |  Ordered Amazon                                                            |
+| Linear Bearing Shaft 6mm Dia. x 200 lg.                  | 4    | [Amazon](<https://www.amazon.com/ReliaBot-inches-Hardened-Chrome-Plated/dp/B07R16DRVY>) |  Arrived                                                            |
 | Linear Bearing LM6LUU (wide Style)                       | 4    | [Amazon](<https://www.amazon.com/uxcell-LM6LUU-6mmx12mmx35mm-Bushing-Bearing/dp/B01N3MO4FA>) | Arrived                                                            |
 | Pulley GT2 16Tooth 6mm 5mm Shaft                         | 2    | [Amazon](<https://www.amazon.com/WINGONEER-Aluminum-Timing-Pulley-Printer/dp/B077YHJHVH>) |  5 Arrived                                                            |
 | Smooth Idler Pulley 3mm I.D. 16Tooth Dia 13mm Flange Dia | 6    | [Amazon](<https://www.amazon.com/BALITENSEN-Smooth-Pulley-Toothless-Printer/dp/B077GXV7BJ>) | 10 Arrived [Issue](https://github.com/bdring/midTbot_esp32/issues/3)    |
