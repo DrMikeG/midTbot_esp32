@@ -28,3 +28,45 @@ There currently are no full kits for sale. [Controller kits are available on Tin
 This project represents a lot of work. Please consider a safe, secure and highly appreciated donation via the PayPal link below.
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TKNJ9Z775VXB2)
+
+## 2020-02-21 ##
+
+I've got the latest arduino ide updated
+I've added the esp32 board manager as described here https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md
+
+I've not pulled the development repo of https://github.com/espressif/arduino-esp32 - hopefully I don't need to do that?
+
+I've copied the libraries from grbl\libs as described here: https://github.com/bdring/Grbl_Esp32/wiki/Compiling-the-firmware
+/Volumes/ExtData03_2TB/Users/mike/Documents/Arduino/libraries
+
+I've set the board settings in Ardino IDE as described here: https://github.com/bdring/Grbl_Esp32/wiki/Compiling-the-firmware
+
+I've opened /Volumes/ExtData03_2TB/Users/mike/arduino/Grbl_Esp32/Grbl_Esp32/Grbl_Esp32.ino and I'm  trying to compile
+
+Compiled unchanged...
+
+The file "cpu_map.h" contains pin maps for several common setups. The master configuration file "config.h" selects one of those pin maps via a "#define" line near the top of that file.
+
+Trying to program CPU_MAP_TEST_DRIVE onto actual board...
+
+Compiled board with test_drive and that seemed to work.
+Can't catch IP address on serial, but did find wifi GRBL_ESP, with password 12345678.
+(See https://github.com/bdring/Grbl_Esp32/wiki/ESP3D-Web-UI-for-Grbl_ESP32)
+
+You can also get them by sending $I on a serial terminal.
+
+Changed config.h to have:
+#define CPU_MAP_MIDTBOT // these are defined in cpu_map.h
+recompiled and flashed to board.
+
+Connected to the wifi network. Uploaded index.html.gz from this repo.
+
+Putting esp board onto controller board
+(Micro usb slot points off the edge of the board)
+
+Plugged in stepper motor nearest boards (X?) Used UI to Jog X - it moves...
+Connected second stepper - they both move when you job X/Y - remember it's a H-bot.
+
+Connected up the servo. Jogged Z. That moves ok too.
+
+Need to remember to adjust the stepper power to get the right cooking temp....
