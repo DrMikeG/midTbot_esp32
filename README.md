@@ -70,3 +70,33 @@ Connected second stepper - they both move when you job X/Y - remember it's a H-b
 Connected up the servo. Jogged Z. That moves ok too.
 
 Need to remember to adjust the stepper power to get the right cooking temp....
+
+# 28th Feb 2020 #
+
+Final screws arrived so attached steppers to the main board.
+Threaded belt. Booted.
+
+Need to follow instructions for attaching servo horn.
+
+## Setting up the motors ##
+
+
+Set the trimpot to minimum to start with, by turning the trimpot fully anti-clockwise. Turn clockwise until the motors are not skipping steps at your target speed and load.
+
+https://github.com/bdring/midTbot_esp32/wiki/Setting-Up-the-Motors
+
+https://github.com/bdring/midTbot_esp32/wiki/Setting-Up-the-Motors#overview-1
+
+Set $rst=$ to reset all of the default Grbl settings.
+Check the status by sending the ? character.
+It should report that there is an alarm. This is because you have not homed yet.
+Send $X to clear the alarm
+
+Send $X to clear the alarm. You then need to send some small test moves to check the direction. 
+Send G91 to put it in (incremental distance mode). Next send G0X2 to move the X axis 2mm to the right. Send G0Y2 to move the Y axis 2mm back. If either of these go the wrong direction you have to rotate one or more of the motor connectors 180 degrees.
+
+
+Send $H to home the machine.
+
+I think the wiring was correct all along - I just had one or more of the stepper drivers dialled down too low for homing work.
+I cleared the alarm with $X, turned both trim pots a fraction clock-wise and rehomed in Y and X. Seemed fine so powered down for tonight.
