@@ -196,4 +196,12 @@ Select object, on path menu click on object to path
 >>> Dynamic offset
 
 
-/Volumes/ExtData03_2TB/Users/mike
+/Volumes/ExtData03_2TB/Users/mik
+
+## Added inkscape MakerBot Unicorn G-Code extension ##
+
+Test params:
+50/30/150/150/1500/1000/0/0 
+
+
+https://shopcraftables.com/free-svg-cut-files/?sort=featured&page=6
