@@ -146,3 +146,54 @@ Not sure I hit the zeroing button in the UI? (It dropped the pen)
 G10L20P0X0Y0 
 
 I've drawn to test drawings of midthead.gcode (both seem to finish with a long random line with the pend down?!)
+
+Trying to debug random line on completion? 
+https://ncviewer.com/ shows this isn't a g-line. It could either be the home command or part of the firmware?
+
+Also homed X and Y independently from Z? This stopped the pen dropping.
+Click the X and Y wheel cross not the combine X/Y/Z one.
+
+## Process ##
+[Position bad paper]
+Power on
+Connect to wifi (12345678)
+$X (clear alarm)
+G0Z0 (pen down)
+[Fit pen]
+G0Z5 (pen up)
+G10L2P0Z-5 (Avoid grounding pen at home.)
+[Position good paper]
+Click home Y
+Click home X
+Move -Y by about -1000 to move to bottom left corner of range
+Click zero X
+Click zero Y
+[Need to figure out drawing Csys from 0,0 process]
+[Execute GCode to draw picture]
+
+if gcode contains G28 you may wish to remove it? Just end on pen up!
+
+## How to make GCode ##
+https://youtu.be/bbe56S_O-uI
+
+Open Inkscape
+> Document Properties
+>> Default UNITS mm
+>> Units mm
+>> Width 180 (plotter bed size)
+>> Height 220 
+
+Import image into inkscape
+Scale
+Goto path tab
+> Trace bitmap
+>> Update
+>> Ok
+>> Close
+Delete image (keep path)
+Select object, on path menu click on object to path
+>> Path tab
+>>> Dynamic offset
+
+
+/Volumes/ExtData03_2TB/Users/mike
