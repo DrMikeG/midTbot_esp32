@@ -100,3 +100,49 @@ Send $H to home the machine.
 
 I think the wiring was correct all along - I just had one or more of the stepper drivers dialled down too low for homing work.
 I cleared the alarm with $X, turned both trim pots a fraction clock-wise and rehomed in Y and X. Seemed fine so powered down for tonight.
+
+For my colour wires, the correct wiring colours away from the ESP board are RGBY/GPBW
+Wrong! Today the correct colours are: RGBY/WBPG
+
+## Setting the X,Y 0,0 point.##
+Homing does not set a 0,0 point. You need to tell it where that is. 
+Home is min(X),max(Y) (top left hand corner)
+Typically you would want jog to the lower left point and the set the 0,0 there.
+min(X),min(Y) (lower left hand corner)
+After homing move the down in negative Y. Be sure you don't hit the limit of travel. If you do, re-home and try again. 
+Once there, set the 0,0. There are also zeroing buttons near the jog panel in the GUI.
+
+## Pen Servo Setup ##
+
+// Required
+$rst=#
+$3=4 (reverse the Z direction) (Has this reversed X and Y?!)
+$102=90 (short pen lower stroke)
+G10L2P0Z-5 (Avoid grounding pen at home.)
+
+G0Z5 is pen up.
+
+Clear the homing alarm by sending $X over the serial port.
+Next send $rst=#. This will reset any machine offsets that might be in memory.
+Send G0Z5 the servo should move to one end of the travel.
+You can see the other end of the travel by sending G0Z0.
+Send G0Z5 again to move to the pen up position. The servo should be rotating clockwise to lift the pen and counterclockwise to lower it. 
+
+I need to send $3=4 to reverse the Z direction
+(Not all servos travel the same way. If yours is going the wrong way, send $3=4 to reverse the Z direction.)
+
+With the machine at Z5, mount the servo horn in a position that holds up the pen lift part. You want it to be holding the pen up close to the max height, but there should be a little travel left.
+
+
+Changing $102 (adjusts Z0) From default (100). Sending $102=90 add 10% towards Z5 (up))
+
+Used G0Z0 to install pen
+
+## Home and first draw ##
+Using WebUI 
+
+Jogged as far in -Y as I dare.
+Not sure I hit the zeroing button in the UI? (It dropped the pen) 
+G10L20P0X0Y0 
+
+I've drawn to test drawings of midthead.gcode (both seem to finish with a long random line with the pend down?!)
