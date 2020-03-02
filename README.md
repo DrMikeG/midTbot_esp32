@@ -205,3 +205,11 @@ Test params:
 
 
 https://shopcraftables.com/free-svg-cut-files/?sort=featured&page=6
+
+## Messing about ##
+
+There are some scaling tricks in inkscape.
+Display units must be px.
+Page scale should be 1.0
+
+The produced gcode has F speed tags. Which can be removed or changed.
