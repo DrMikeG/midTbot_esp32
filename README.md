@@ -213,3 +213,12 @@ Display units must be px.
 Page scale should be 1.0
 
 The produced gcode has F speed tags. Which can be removed or changed.
+
+
+# 7th March 2020
+
+https://www.norwegiancreations.com/2015/08/an-intro-to-g-code-and-how-to-generate-it-using-inkscape/
+
+Useful guide to the inkscape gcode plugin. Recomends visualising (including timings) in Camotics
+
+I probably don't need a post processor if I change the settings in the green tool table.
