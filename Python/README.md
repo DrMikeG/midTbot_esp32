@@ -21,6 +21,12 @@ Then I tried to estimate the area, treating the coordinates as vertices - this w
 I am going to try and do a better approximation.
 
 Example from round_church
+
+![Path 9517](./README_IMG/9517.png)
+
+![Path 20026](./README_IMG/20026.png)
+
+#       id="path20026" />
 <path
        style="fill:none;stroke:#ff0000;stroke-width:4.75441"
        d="m 4644.4095,-2548.3896 c 0,-3.5888
@@ -51,6 +57,9 @@ This was invaluable https://medium.com/@adrian_cooney/bezier-interpolation-13b68
 ![Cubic Bezier: How it work](./README_IMG/bez.gif)
 
 ![Code for point at T](./README_IMG/bez.png)
+
+![solver](./README_IMG/solver.png)
+
 ```
 float T = 0.5;
 CGPoint A = pointInLine(p0, p1, T);

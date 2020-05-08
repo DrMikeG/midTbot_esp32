@@ -1,5 +1,6 @@
 from xml.dom import minidom
 import re
+import bez
 
 def getPaths(pathToFile):
     doc = minidom.parse(pathToFile)  # parseString also exists
@@ -35,10 +36,16 @@ def countAllTheClosedPathsInThisGroup(outgroup):
     # paths is an array of dictionaries
     # each containing id and d
     for path in outgroup["paths"]:
-        if path["d"].endswith(" z") or path["d"].endswith(" Z"):
-            if (path["d"].count(" c ") + path["d"].count(" C ")) == 1 :
+        if (isClosedPath(path["d"]) ) :
                 allClosedPaths.append(path["d"])
     return allClosedPaths
+
+def isClosedPath(path):
+    if path.endswith(" z") or path.endswith(" Z"):
+            if (path.count(" c ") + path.count(" C ")) == 1 :
+                return True
+    return False
+
 
 def countAllTheClosedPathsWithFewerThanNCommas(paths,n):
     allClosedPaths = []
@@ -87,8 +94,8 @@ def makeXsYs(numbers):
     nNumbers = len(numbers)
 
     if (nNumbers % 2 == 1):
-        print("uneven number of numbers ")
-        print("skipping last one ")
+        #print("uneven number of numbers ")
+        #print("skipping last one ")
         nNumbers -=1
 
 
@@ -106,14 +113,14 @@ def pathHasNonMoveAbsValueOfGreaterThanF(path,f):
     return max(numbers) > f
 
 def pathPolyGoneArea(path):
+    assert isClosedPath(path) 
     numbers = numbersInPath(path)
-    numbers.pop(0) # remove first move position
-    numbers.pop(0) # remove second move position
     xsys =  makeXsYs(numbers)
-    xsys[0] = turnMovementsIntoPositions(xsys[0])
+    xsys[0] =turnMovementsIntoPositions(xsys[0])
     xsys[1] = turnMovementsIntoPositions(xsys[1])
-    return polygonArea(xsys[0],xsys[1])
-
+    intXsYS = bez.tenStepsOnPolyCubic(xsys)
+    return polygonArea(intXsYS[0],intXsYS[1])
+    
 def turnMovementsIntoPositions(xs):
     newXs = []
     position = 0.0
@@ -140,4 +147,4 @@ def polygonArea(Xs,Ys):
         area +=  (Xs[j]+Xs[i]) * (Ys[j]-Ys[i])
         j = i #j is previous vertex to i
         i += 1
-    return abs(area/2.0)
+    return round(abs(area/2.0))
