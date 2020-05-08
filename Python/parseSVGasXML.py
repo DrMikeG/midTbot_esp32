@@ -31,6 +31,17 @@ def getGroups(pathToFile):
     doc.unlink()
     return outgroups
 
+def countAllThePolyBezPathsInThisGroup(outgroup):
+    allClosedPaths = []
+    # paths is an array of dictionaries
+    # each containing id and d
+    for path in outgroup["paths"]:
+        if (isPolyBezPath(path["d"]) ) :
+            if (hasExpectedNumberOfTerms(path["d"])) :
+                allClosedPaths.append(path["d"])
+    return allClosedPaths
+
+
 def countAllTheClosedPathsInThisGroup(outgroup):
     allClosedPaths = []
     # paths is an array of dictionaries
@@ -42,7 +53,31 @@ def countAllTheClosedPathsInThisGroup(outgroup):
 
 def isClosedPath(path):
     if path.endswith(" z") or path.endswith(" Z"):
-            if (path.count(" c ") + path.count(" C ")) == 1 :
+            if (path.count(" c ") + path.count(" C ")) > 0 :
+                return True
+    return False
+
+def isPolyBezPath(path):
+    if (path.count(" c ")) > 0 :
+        if (path.count(" l ")) == 0 :
+            if (path.count(" h ")) == 0 :
+                if (path.count(" v ")) == 0 :
+                    return True
+    return False
+
+def hasExpectedNumberOfTerms(path): 
+    curves = splitPathIntoPolyCurves(path)
+    # curves should be at least m section (2 numbers) followed by 1 or more c section (3*n)
+    if (len(curves) > 1):
+        mNumbers = numbersInPath(curves[0])
+        if (len(mNumbers) == 2):
+            allThrees = True
+            for curve in curves[1::] :
+                cNumbers = numbersInPath(curve)
+                if (len(cNumbers) % 3 != 0):
+                    allThrees = False
+                    break
+            if (allThrees):
                 return True
     return False
 
@@ -57,16 +92,7 @@ def countAllTheClosedPathsWithFewerThanNCommas(paths,n):
             allClosedPaths.append(path)
     return allClosedPaths
 
-def countAllTheClosedPathsWithMaxDistLessThanF(paths,f):
-    allClosedPaths = []
-    # paths is an array of dictionaries
-    # each containing id and d
-    for path in paths:
-        if (False == pathHasNonMoveAbsValueOfGreaterThanF(path,f)):
-            allClosedPaths.append(path)
-    return allClosedPaths
-
-def countAllTheClosedPathsWithAreaLessThanF(paths,f):
+def removePathsWithAreaLessThanF(paths,f):
     allClosedPaths = []
     # paths is an array of dictionaries
     # each containing id and d
@@ -76,6 +102,18 @@ def countAllTheClosedPathsWithAreaLessThanF(paths,f):
     return allClosedPaths
 
 
+
+def pathCountPolyBezSection(path):
+    return path.count(" c ")
+
+def splitPathIntoPolyCurves(path):
+    l = []
+    for t in re.split(' c | l ',path):
+        try:
+            l.append(t)
+        except ValueError:
+            pass
+    return l
 
 def numbersInPath(path):
     l = []
@@ -106,11 +144,6 @@ def makeXsYs(numbers):
     return [xs,ys]
 
 
-def pathHasNonMoveAbsValueOfGreaterThanF(path,f):
-    numbers = numbersInPath(path)
-    numbers.pop(0) # remove first move position
-    numbers.pop(0) # remove second move position
-    return max(numbers) > f
 
 def pathPolyGoneArea(path):
     assert isClosedPath(path) 

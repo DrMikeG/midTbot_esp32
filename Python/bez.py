@@ -33,15 +33,26 @@ def getCubicTupleIndices(xsys):
 
     assert len(xsys) == 2, "output area should be the same length as input"
     assert len(xsys[0]) == len(xsys[1]) , "output area should be the same length as input"
+    assert ((len(xsys[0]) - 1) % 3 == 0), "expecting there to be multiple of three"
 
     tupleArrayOfIndices = []
     i = 0
-    while i+3 <= len(xsys[0])-1:
+    while i+3 <= len(xsys[0]):
         arrayOfIndicesFromI = [i,i+1,i+2,i+3]
         tupleArrayOfIndices.append(arrayOfIndicesFromI)
         i += 3
-    # = [[0,1,2,3],[3,4,5,6]]
+    # = [[0,1,2,3],
+    #          [3,4,5,6]
+    #                [6,7,8,9]
+    #                      [9,10,11,12]
+    #                              [12,13,14,15]
+    #                                       [15,16,17,18]
+    #                                                [18,19,20,21]
+    #                                                         [21,22,23,24]
+    #                                                                  [24,25,26,27]
     
+
+
     return tupleArrayOfIndices
 
 def tenStepsCubic(Xs,Ys):
@@ -58,10 +69,11 @@ def tenStepsCubic(Xs,Ys):
     return [xPointsOnCurve,yPointsOnCurve]
 
 def tenStepsOnPolyCubic(xsys):
+
     indices = getCubicTupleIndices(xsys)
     vsXs = []
     vsYs = []
-    
+
     for ind in indices:
         xs = [ xsys[0][ind[0]], xsys[0][ind[1]], xsys[0][ind[2]], xsys[0][ind[3]] ]
         ys = [ xsys[1][ind[0]], xsys[1][ind[1]], xsys[1][ind[2]], xsys[1][ind[3]] ]
