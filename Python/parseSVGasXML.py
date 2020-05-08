@@ -80,6 +80,7 @@ def numbersInPath(path):
     return l
 
 def makeXsYs(numbers):
+
     xs = []
     ys = []
     i=0
