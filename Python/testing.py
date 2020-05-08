@@ -108,6 +108,9 @@ class TestReadFileAsXMLMethods(unittest.TestCase):
         anotherBig_9635_area=parseSVGasXML.pathPolyGoneArea("m 3325.0398,-1454.2681 c -1.616,-2.6149 -6.2259,-4.7544 -10.2439,-4.7544 -4.0184,0 -12.9847,-3.9069 -19.9257,-8.6819 -7.153,-4.9208 -22.9182,-9.1992 -36.3922,-9.876 -25.0591,-1.2589 -34.0773,-5.742 -28.7827,-14.3088 4.0098,-6.488 29.5881,-6.804 33.5371,-0.4141 1.616,2.6149 7.0912,4.7544 12.1666,4.7544 5.0758,0 9.2283,2.1395 9.2283,4.7544 0,2.615 4.2789,4.7545 9.5088,4.7545 5.2299,0 9.5088,2.1394 9.5088,4.7544 0,2.6149 5.4895,4.7544 12.1984,4.7544 15.2926,0 31.7681,8.5127 28.0668,14.5018 -3.6662,5.932 -15.1462,5.7869 -18.8703,-0.2387 z")
         self.assertTrue(anotherBig_9733_area > anotherBig_9635_area)
 
+    # https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+    # this is the problem I am not yet calculating the area of a bezier
+
 
     def test_canFindPathsWithLessThanFArea(self):
         outgroups = parseSVGasXML.getGroups(".\\testFiles\\round_church_two_paths_140x140.svg")
