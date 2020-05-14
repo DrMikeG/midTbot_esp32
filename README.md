@@ -151,8 +151,7 @@ Trying to debug random line on completion?
 https://ncviewer.com/ shows this isn't a g-line. It could either be the home command or part of the firmware?
 
 Also homed X and Y independently from Z? This stopped the pen dropping.
-Click the X and Y wheel cross not the combine X/Y/Z one.
-
+Click the X and Y wheel cross not the co
 ## Process ##
 [Position bad paper]
 Power on
