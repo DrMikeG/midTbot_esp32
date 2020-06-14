@@ -141,9 +141,41 @@ class TestReadFileAsXMLMethods(unittest.TestCase):
         
         redLines = parseSVGasXML.countAllThePolyBezPathsInThisGroup(outgroups[0])
         
-        redLinesToSkip = parseSVGasXML.removePathsWithAreaLessThanF(redLines,2500)
+        area_min = 2500
+        redLinesToSkip = parseSVGasXML.removePathsWithAreaLessThanF(redLines,area_min)
+
+        print("Removing "+str(len(redLinesToSkip))+" paths with area lest than "+str(area_min))
+
         writeNewXML.copyFileLineByLine(".\\testFiles\\round_church_two_paths_140x140.svg",".\\testFiles\\tmp_round_church_two_paths_140x140.svg",redLinesToSkip)
         self.assertTrue(loadFile.checkPathExists(".\\testFiles\\tmp_round_church_two_paths_140x140.svg"))
+
+    def test_writeNewKingsXML(self):
+        path_in = ".\\testFiles\\kings_layers.svg"
+        path_out = ".\\testFiles\\tmp_kings_layers.svg"
+        if loadFile.checkPathExists(path_out):
+            os.remove(path_out)
+
+        self.assertTrue(loadFile.checkPathExists(path_in))
+        self.assertFalse(loadFile.checkPathExists(path_out))
+
+        outgroups = parseSVGasXML.getGroups(path_in)
+
+        self.assertEqual(len(outgroups),2)
+        self.assertEqual(outgroups[1]["label"],"GreenLayer")
+        self.assertEqual(outgroups[0]["label"],"RedLayer")
+        self.assertEqual(len(outgroups[1]["paths"]),1)
+        self.assertEqual(len(outgroups[0]["paths"]),1280)
+
+        redLines = parseSVGasXML.countAllThePolyBezPathsInThisGroup(outgroups[0])
+        
+        area_min = 2500
+        redLinesToSkip = parseSVGasXML.removePathsWithAreaLessThanF(redLines,area_min)
+
+        print("Removing "+str(len(redLinesToSkip))+" paths with area lest than "+str(area_min))
+
+        writeNewXML.copyFileLineByLine(path_in,path_out,redLinesToSkip)
+        self.assertTrue(loadFile.checkPathExists(path_out))
+
 
     def test_bez01(self):
         path19986 = "m 4316.3854,-2232.4071 c 0.047,-2.1791 7.8804,-11.4502 17.4501,-20.6024 10.8015,-10.3303 16.1911,-13.3379 14.2128,-7.9314 -1.7529,4.79 -3.1869,11.4938 -3.1869,14.8973 0,3.4036 -3.7441,7.5089 -8.3202,9.123 -4.5761,1.6142 -10.9946,4.1815 -14.2632,5.7052 -3.2687,1.5237 -5.9202,0.9874 -5.8926,-1.1917 z"

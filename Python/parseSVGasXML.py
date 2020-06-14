@@ -35,10 +35,42 @@ def countAllThePolyBezPathsInThisGroup(outgroup):
     allClosedPaths = []
     # paths is an array of dictionaries
     # each containing id and d
-    for path in outgroup["paths"]:
-        if (isPolyBezPath(path["d"]) ) :
-            if (hasExpectedNumberOfTerms(path["d"])) :
-                allClosedPaths.append(path["d"])
+    paths = outgroup["paths"]
+
+    nTotal = len(paths)
+    containsL = 0
+    containsH = 0
+    containsV = 0
+    unexpectedNumberOfTerms = 0
+    
+    for path in paths:
+        pathStr = path["d"]
+        if (isPolyBezPath(pathStr) ) :
+            if (hasExpectedNumberOfTerms(pathStr)) :
+                allClosedPaths.append(pathStr)
+            else :
+                unexpectedNumberOfTerms += 0
+        else :
+            # Reason for failure
+            if (pathStr.count(" l ")) != 0 :
+                containsL += 1
+            if (pathStr.count(" h ")) != 0 :
+                containsH += 1
+            if (pathStr.count(" v ")) != 0 :
+                containsV += 1
+
+
+    nKept = len(allClosedPaths)
+    nRejected = nTotal-nKept
+
+    print("Total: " + str(nTotal))
+    print("Kept: "+str(nKept))
+    print("% Kept : "+str(nKept/(nTotal/100))+"%")
+    print("containsL: "+str(containsL/(nRejected/100))+"%")
+    print("containsH: "+str(containsH/(nRejected/100))+"%")
+    print("containsV: "+str(containsV/(nRejected/100))+"%")
+    print("unexpectedNumberOfTerms: "+str(unexpectedNumberOfTerms/(nRejected/100))+"%")
+
     return allClosedPaths
 
 

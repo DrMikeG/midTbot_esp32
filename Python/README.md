@@ -26,7 +26,7 @@ Example from round_church
 
 ![Path 20026](./README_IMG/20026.png)
 
-#       id="path20026" />
+
 <path
        style="fill:none;stroke:#ff0000;stroke-width:4.75441"
        d="m 4644.4095,-2548.3896 c 0,-3.5888
