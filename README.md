@@ -151,8 +151,7 @@ Trying to debug random line on completion?
 https://ncviewer.com/ shows this isn't a g-line. It could either be the home command or part of the firmware?
 
 Also homed X and Y independently from Z? This stopped the pen dropping.
-Click the X and Y wheel cross not the combine X/Y/Z one.
-
+Click the X and Y wheel cross not the co
 ## Process ##
 [Position bad paper]
 Power on
@@ -222,3 +221,14 @@ https://www.norwegiancreations.com/2015/08/an-intro-to-g-code-and-how-to-generat
 Useful guide to the inkscape gcode plugin. Recomends visualising (including timings) in Camotics
 
 I probably don't need a post processor if I change the settings in the green tool table.
+
+Having scolded my Son repeatedly about running with his tablet, he sheepishly presented me with broken headphones.
+
+Dodgy jack? Easy repair? Only got to solder three wires - easy!
+
+Not when they are crappy, enameled strand twisted pairs in a stretchy yellow plastic sleeve.
+
+I only recently learned you can tin enamelled ends by bubbling them in solder.
+
+After three fails attempts to splice them end-to-end with no strain relief, I admitted default and soldered them back to back.
+At least my Son has his headphones back for (home) school tomorrow.
